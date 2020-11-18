@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf8">
+	<title>Desafio 2</title>
+
+	
+</head>
+<body>
+			<h1> Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:</h1><br>
+			<form>
+					<input type="text" id="valor1" placeholder="x">
+					<br>
+						<input type="text" id="valor2" placeholder="y">
+					
+					<button onclick="pares();">
+						Executar
+								</button>
+			</form>
+								
+
+</body>
+
+
+
+	<script>
+
+		function pares(){
+
+			var op1=document.getElementById("valor1").value;
+			var op2=document.getElementById("valor2").value;
+			op1=parseInt(op1);
+			op2=parseInt(op2);
+			var maior;
+			var menor;
+
+			if(op1>op2)
+			{
+				maior=op1;
+				menor=op2;
+			}
+			else
+				{
+				maior=op2;
+				menor=op1;}
+
+
+
+
+				var pares = [];
+		
+				for(i=menor;i<=maior;i++)
+				{
+					if(i%2==0)
+						pares.push(i);
+
+
+				}
+				
+			alert("Os pares são " +pares);	
+
+
+
+		}
+
+</script>
+</html>
