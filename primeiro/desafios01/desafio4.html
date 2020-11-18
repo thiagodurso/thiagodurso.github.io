@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title> Desafio 4</title>
+</head>
+<body>
+	<form>
+					<input type="text" id="valor1" placeholder="Digite idade">
+					<br>
+					
+					<button onclick="funcaoanos();">
+						Executar
+								</button>
+			</form>
+
+</body>
+
+
+<script>
+
+	function funcaoanos(){
+
+		ano=document.getElementById("valor1").value;
+		ano=parseInt(ano);
+		if(ano>=0 && ano<1)
+			alert( "iniciante") ;
+		else
+			if(ano<3)
+				alert( "Intermediário");
+			else 
+				if(ano<6)
+				alert( "Avançado");
+				else
+				 alert("Jedi Master");
+
+
+
+	}
+	</script>
+</html>
