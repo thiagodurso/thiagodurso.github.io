@@ -1,9 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> oi</title>
+
+	
+					
+
+
+	<title> Desafio 1</title>
+
+
+
+
+
+
 </head>
 <body>
+                <h1> Crie uma função que dado o objeto a seguir: var endereco = { rua: "Rua dos pinheiros", numero: 1293, bairro: "Centro", cidade: "São Paulo", uf: "SP" }; Retorne o seguinte conteúdo: O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" com nº 1293. </h1> <br>
+	       <p id="msg"> </p>
+	
 
 </body>
+
+ <script type="text/javascript">
+
+
+
+
+
+
+    var endereco = {
+
+                            rua: "Rua dos Pinheiros",
+                            numero:1293,
+                            bairro:"Centro",
+                            cidade: "São Paulo",
+                            uf:"SP"
+                        };
+
+                          var frase="O usuário mora em " + endereco.cidade + " / " + endereco.uf + ", no bairro " + endereco.bairro + ", na rua '"  + endereco.rua + "' com o n° " + endereco.numero + ".";
+                        document.getElementById("msg").innerHTML = frase;
+                    
+
+                          
+                      
+                        
+    </script>
 </html>
