@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Desafio 4</title>
+
+
+</head>
+<body>
+	<h1>
+		Dado o seguinte vetor de objetos: var usuarios = [ { nome: "Diego", habilidades: ["Javascript", "ReactJS", "Redux"] }, { nome: "Gabriel", habilidades: ["VueJS", "Ruby on Rails", "Elixir"] } ];
+Escreva uma função que produza o seguinte resultado: O Diego possui as habilidades: Javascript, ReactJS, Redux. O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir </h1>
+
+			<p id="msg"> </p>
+</body>
+
+
+<script>
+
+	var usuarios = [
+						{
+							nome:"Diego",
+							habilidades: ["Javascript", "ReactJS", "Redux"]
+
+						},
+
+						{
+							nome:"Gabriel",
+							habilidades:["VueJS", "Ruby on Rails", "Elixir"]
+						}
+
+
+
+	];
+	function percorre(v){
+		var D = v[0];
+		var G = v[1];
+
+		var exibir1="O " + D.nome + " possui as habilidades: " + D.habilidades.join(", ") + ".<br>";
+		var exibir2= "O " + G.nome + " possui as habilidades: " + G.habilidades.join(", ") + ".";
+		var frase= exibir1 + exibir2;
+
+		return frase;
+
+
+
+
+
+		}
+result=percorre(usuarios);
+document.getElementById("msg").innerHTML = result;
+
+
+	</script>
+</html>
