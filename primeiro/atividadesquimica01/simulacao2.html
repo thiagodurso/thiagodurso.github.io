@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta charset="author" content="Saulo Klein Nery"> 
+    <title>Trabalho de Química</title>
+        <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Simulação 2  H2O(gramas) --> O2(átomo)
+                    H2O(gramas)  --> H2(átomo) </h1>
+
+    <h1> Alunos: Thiago Durso e Saulo Klein </h1>
+
+    <h2>Digite grama da água: H2O (grama) --> O2 (átomo), H2(átomo)</h2>
+    <input type="value" id="grama1" placeholder="Digite grama:">
+    <button onclick="acha_atomo();">Executar</button> 
+    <h2 id="resposta"></h2>
+
+   
+
+   
+</body>
+<script>
+         function acha_atomo()
+        {
+            var grama1 = document.getElementById("grama1").value;
+            grama1 = parseFloat(grama1);
+            var molh2o = grama1/18;
+            var molo2 = molh2o/2;
+            var atomo1= molo2 * 6 * Math.pow(10,23);
+            var molh2 = molh2o;
+            var atomo2 = molh2 * 6 * Math.pow(10,23);
+
+            var resultado1 = "Passo 1: transforme a grama em mol: <br> 18g - 1 mol <br>" + grama1 + " - x mol <br>" + "x = " + molh2o + "<br> <br> Passo 2: Verifique a proporção em mols --> 0,5 (O2) : 1 (H2O). <br> Regra de três: <br>0,5(O2) - 1(H2O) <br>" + " x(O2) - " + molh2o + "(H2O) <br>" + "x = " + molo2 + "<br> Passo 3: Converta o Mol para Átomo: <br> 1 (mol) - 6x10²³ (átomos)" + "<br>" + molo2 + " - x(átomos) <br>" + "x = " + atomo1 + "<br> <br> Da mesma forma com H2: <br> Como temos " + 
+                  molh2o + " mol(s) de H2O, <br> <br> Passo 1: Verifique a proporção em mols --> 1 (H2O) : 1 (H2). <br> Regra de três: <br>1(H2) - 1(H2O) <br>" + " x(H2) - " + molh2o + "(H2O) <br>" + "x = " + molh2 + "<br> Passo 2: Converta o Mol para Átomo: <br> 1 (mol) - 6x10²³ (átomos)" + "<br>" + molh2 + " - x(átomos) <br>" + "x = " + atomo2;
+            
+
+
+            document.getElementById("resposta").innerHTML = resultado1;
+       
+}
+
+    </script>
+</html>
