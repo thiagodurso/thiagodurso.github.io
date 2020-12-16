@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Rocketseat 01</title>
+</head>
+<body>
+		<h2>  Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve aparecer na tela. </h2>
+
+		<button onclick = "quadrado();"> Clique </button>
+		<div id = "aqui"> </div>
+
+</body>
+
+<script>
+					function quadrado(){
+
+					 var div= document.createElement("DIV");
+					 div.style.width = '100px';
+					 div.style.height = '100px';
+					 div.style.backgroundColor = 'red';
+					 div.style.float = 'left';
+					 div.style.margin = '10px';
+
+					 document.getElementById("aqui").appendChild(div);
+
+					}
+	</script>
+</html>
