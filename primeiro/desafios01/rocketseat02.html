@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> RocketSeat 02</title>
+</head>
+<body>
+<button onclick = "quadrado();"> Clique </button>
+		<div id = "aqui"> </div>
+					
+</body>
+<script>
+	function getRandomColor() {
+ var letters = "0123456789ABCDEF";
+ var color = "#";
+ for (var i = 0; i < 6; i++) {
+ color += letters[Math.floor(Math.random() * 16)];
+ }
+ return color;
+}
+		
+		function quadrado(){
+
+					 var div= document.createElement("DIV");
+					 div.style.width = '100px';
+					 div.style.height = '100px';
+					 div.style.backgroundColor = 'red';
+					 div.style.float = 'left';
+					 div.style.margin = '10px';
+					div.onmouseover = function cor(){
+						div.style.backgroundColor = getRandomColor();
+					}
+					 document.getElementById("aqui").appendChild(div);
+					
+
+					}
+
+
+
+</script>
+</html>
