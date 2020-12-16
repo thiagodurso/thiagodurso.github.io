@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+      
+    <title>Trabalho de Química</title>
+        <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Simulação 3 O2(mol) -->H2(mol)
+</h1>
+
+    <h1> Alunos: Thiago Durso e Saulo Klein </h1>
+    <h2>Digite mol</h2>
+
+    <input type="value" id="mol1" placeholder="Digite mol do O2:">
+    <input type="value" id="mol2" placeholder = "Digite mol do H2:">
+    <button onclick="acha_limitante();">Executar</button> 
+    <h2 id="resposta"></h2>
+</body>
+<script>
+            function acha_limitante(){
+
+                var molo2 = document.getElementById("mol1").value;
+                var molh2 = document.getElementById("mol2").value;
+                var molo2 = parseFloat(molo2);
+                var molh2 = parseFloat(molh2);
+
+                   var qtdo2 = molh2 / 2;
+
+                   if(molo2 > qtdo2)
+                    
+                    var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Como " +molo2+ ">" +qtdo2 + ", O2 é o excedente e <mark> H2 é o limitante.</mark>" + "<br> Quantidade de mols do limitante: " +molh2 + "<br> Produto formado: " +molh2+ "H2O";
+                    
+                else
+                    if(molo2 == qtdo2)
+                         var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Como " +molo2+ "=" +qtdo2 + ", a reação teve um aproveitamento de 100%! ";
+                 else
+                     var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Como " +molo2+ "<" +qtdo2 + ", O2 não é o excedente. Logo, <mark> é o limitante</mark>. <br> Quantidade de mols do limitante: " +molo2 + "<br> Reagente formado: " + 2*molo2 +"H2O";
+
+                
+
+
+               
+               
+               document.getElementById("resposta").innerHTML = resultado;
+ 
+
+
+
+
+            }
+
+
+    </script>
+</html>
