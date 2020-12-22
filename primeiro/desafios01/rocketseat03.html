@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> RocketSeat 03</title>
+</head>
+<body>
+	<h2> Desafio 03:     
+     </h2>
+     <h3> Resultado: </h3>
+		<ul>  </ul>
+					
+</body>
+<script>
+		
+		var nomes = ["Diego", "Gabriel", "Lucas"];
+		
+		function preenche(v){
+
+					var lista = document.querySelector("ul");
+
+					for(var i=0;  i<3; i++)
+					{
+						 var criali = document.createElement("LI");
+						 var nome = document.createTextNode(v[i]);
+						 criali.appendChild(nome);
+						 lista.appendChild(criali);	
+					}
+
+				}
+					
+					preenche(nomes);
+					
+
+
+
+</script>
+</html>
