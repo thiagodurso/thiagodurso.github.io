@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> RocketSeat 04</title>
+</head>
+<body>
+	<h2> Desafio 04:     
+     </h2>
+     <h3> Resultado: </h3>
+		
+		<input type = "text" id="name">
+<button onclick = "adicionar()"> Adicionar </button>
+<ul> </ul>
+					
+</body>
+<script>
+		
+		
+		
+		var nomes = ["Diego", "Gabriel", "Lucas"];
+		var lista = document.querySelector("UL");
+
+					for(var i=0;  i<3; i++)
+					{
+						 var criali = document.createElement("LI");
+						 var texto = document.createTextNode(nomes[i]);
+						 criali.appendChild(texto);
+						 lista.appendChild(criali);	
+					}
+
+				function adicionar(){
+					 		var valor = document.getElementById("name").value;
+					 		var criali = document.createElement("LI");
+					 		var lista = document.querySelector("UL");
+							var texto = document.createTextNode(valor);
+							criali.appendChild(texto);
+							lista.appendChild(criali);
+							document.getElementById("name").value ='';			
+
+
+				}
+					
+					
+					
+
+
+
+
+				
+					
+
+
+
+</script>
+</html>
