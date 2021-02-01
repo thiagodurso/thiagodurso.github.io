@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	 <meta charset="utf-8">
+	  <meta charset="author" content="Thiago Durso"> 
+	<title>Biblioteca</title>
+	<style>
+			#lixeira{
+				height:30px;
+			}
+		 	input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		 		#acervo{
+		 					border-color:brown;
+
+		 		}
+		 	body, input, textarea, select{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+		 
+	</style>
+		
+</head>
+<body>
+		<h1> Cadastro do Livro </h1>
+		<fieldset>
+		<input type="text" id="titulo" placeholder="Título"> <br>
+		<textarea id="descricao" rows="10" cols="30" placeholder="Descrição"></textarea><br>
+		<select name="genero" id="genero">
+			<option value=""> Gênero </option>
+			<option value="Romance"> Romance </option>
+			<option value="Drama"> Drama</option>
+			<option value="Terror"> Terror </option>
+			<option value="Ficção"> Ficção</option>
+			<option value="Técnico"> Técnico</option>	
+		</select><br>
+		<form id="form_autor"> 
+		<input type="search" id="autor" placeholder="Autor"> <!-- define input como "search" -->
+	</form>
+		 <button id="addlist">Adicionar à lista </button> 
+		
+	</fieldset>
+
+	<h1> Catálogo </h1>
+	<table id="acervo" border="1" > 
+		<tr class ="livro">
+	 		<td>Título </td>
+	 		<td> Descrição </td>
+	 		<td> Gênero </td>
+	 		<td> Autor </td>
+		</tr>
+	</table>
+	<form id="salvar" action="https://rafaelescalfoni.net/web/livros.php" method="POST"> 
+		<input type="hidden" name="acervo_post">
+		<input type="submit" value="Salvar no BD" name="clique">
+	</form>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+
+		
+
+$(document).ready(function(){
+		
+		var array = [];
+		
+	$("#addlist").click(function(){ 
+		let tituloLivro = $("#titulo").val();
+		let descricaoLivro= $("#descricao").val();
+		let generoLivro=$("#genero").val();
+		let autorLivro = $("#autor").val();
+		
+			// cria a tabela
+		$("#acervo").append(
+			 				$("<tr>").append( $("<td>").addClass("titulo").text(tituloLivro) )
+								 		.append( $("<td>").addClass("descricao").text(descricaoLivro) )
+								 		.append( $("<td>").addClass("genero").text(generoLivro) )
+								 		.append( $("<td>").addClass("autor").text(autorLivro)	)
+								 		.append( $("<td>").append( // para excluir a linha da tabela
+								 									$("<img id='lixeira'>").attr("src", "lixeira.png").click(function(){
+								 									  $(this).closest('tr').remove();	
+								 									}) ) ) )
+
+						 $("#titulo").val(""); // apagar os campos do formulário
+						 $("#descricao").val("");	
+						 $("#genero").val("");
+						 $("#autor").val("");	 	
+							});
+		$("input[name=clique]").click(function(){
+			var tr = $("tr"); 
+			var qtr = tr.length; //conta a quantidade de linhas da tabela
+			var array = [];		//declaração dos arrays
+			var array = [];
+			var titulo1 = [];
+			var descricao1 = [];
+			var genero = [];
+			var autor = [];
+
+			for(var i=0; i<qtr-1; i++ ) // (qtr -1) porque uma das linhas do tr é referente ao nome das colunas "Livro, Descrição..."
+
+			{
+				
+				 titulo1 = $(".titulo");
+				 descricao1 =$(".descricao");
+				 genero1 = $(".genero");
+				 autor1 = $(".autor");
+				 livro = {"titulo": $(titulo1[i]).text(), "descricao": $(descricao1[i]).text(), "genero":$(genero1[i]).text(), "autor": $(autor1[i]).text()};
+				array.push(livro); 
+				
+				
+
+			}
+			var acervo = JSON.stringify(array); //tranforma o array de objetos em string
+			$("input[name=acervo_post]").val(acervo); 
+	})
+		
+	
+							});
+
+	
+
+				
+
+
+
+</script>
+</html>
