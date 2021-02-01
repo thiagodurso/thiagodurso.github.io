@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+	  <meta charset="author" content="Thiago Durso"> 
+	<title>Glossário</title>
+
+	<style>
+				body{
+					background-color: rgba(255, 255, 128, .5);
+				}
+				.coluna-50{
+					width:50%;
+					
+
+				}
+				.linha{
+					display:flex;
+					flex-flow: row wrap;
+						
+				}
+				.termo{
+					font-weight: bolder;
+				}
+			.esquerda{
+				border-left:2px solid black;
+				height: 500px;
+
+			}
+			.direita{
+				font-weight: bolder;
+				margin: 10px 50px 20px;
+
+			}
+			li{cursor:pointer;}
+			
+
+	</style>
+</head>
+<body>		
+			<div class="linha">
+				<div class ="coluna-50">
+					<div class="esquerda">
+						<section class="direita">
+						<h1> Termos </h1>
+						<ul id = "termos"> </ul>
+						
+					</section>
+				</div>	
+				</div>
+			
+				<div class="coluna-50">
+				 <div class="esquerda">
+					<section class="direita">
+					<h1> Definição </h1>
+					<h3  class="aviso"> Clique em algum termo! </h3>
+					<p id= "termo"> </p> 
+				 	<p id="definicao"> </p> 
+				 	<p id="autor"> </p> 
+				 	<p id="data"> </p>
+				 	
+				 </section>
+				 </div>
+				</div>
+			</div>	
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+		$(document).ready(function(){
+			$("#termos").append($("<li>").addClass("termo").text("W3C"));
+			$("#termos").append($("<li>").addClass("termo").text("HTML"));
+			$("#termos").append($("<li>").addClass("termo").text("CSS"));
+
+			var glossario = [{"termo":"W3C", "definicao":"World Wide Web Consortium – escritório responsável por desenvolver normas técnicas para a Internet", "autor":"José Borges", "data":"2015-04-01"},
+				{"termo":"HTML", "definicao":"HyperText Markup Language – linguagem de marcação utilizada para estruturar páginas web", "autor":"Pedro Silva", "data":"2017-05-12"}, 
+				{"termo":"CSS", "definicao":"Cascade Style Sheet – Folhas de estilo utilizadas para configurar a visualização de páginas web.", "autor":"Maria Machado", "data":"2018-10-11"}];
+				var pos =[];
+				
+				  $("li").click(function(){ 
+				  	$(".aviso").text(""); //para tirar o aviso
+				  	pos = $(this).index();  //pega a posição do elemento clicado
+				  	
+				    //adiciona a cada termo,de uma posição "pos", o seu respectivo 	objeto.
+				  	$("#termo").text("Termo: " + glossario[pos].termo);  
+				  	$("#definicao").text("Definição: "+glossario[pos].definicao);
+				  	$("#autor").text("Autor: " +glossario[pos].autor);
+				  	$("#data").text("Data: "+glossario[pos].data);
+
+
+
+				  	
+				  })
+				
+
+					
+					
+					
+
+					
+							
+								
+				
+
+
+		});
+		
+</script>
+</html>
