@@ -5,13 +5,35 @@
       
     <title>Trabalho de Química</title>
         <link rel="stylesheet" href="./style.css">
+        
+              <style>
+            #reacao{
+                border-style: outset;
+                border-color: orange;
+            }
+
+            #alunos{
+            border-style:outset;
+            border-color:yellow;}
+              #resposta{
+            border-style:outset;
+            border-color:green;
+            background: rgba(76, 175, 80, 0.3);
+        }
+        #simulacao{
+            border-style:outset;
+            border-color: blue;
+
+        }
+        </style>
 </head>
 <body>
-    <h1>Simulação 3 O2(mol) -->H2(mol)
-</h1>
-
-    <h1> Alunos: Thiago Durso e Saulo Klein </h1>
-    <h2>Digite mol</h2>
+    <h2 id ="alunos"> Alunos: Thiago Durso e Saulo Klein </h2>
+   
+     <h2 id = "reacao"> Reação: H2 + 1/2 O2 --> H2O  </h2> 
+      <h2 id="simulacao">Simulação 3: Com base na reação acima, descubra quem é o <br> excedente/limitante e o produto formado em função dos seus Mols.</h2>
+    </h2>
+    <h3>Digite mol</h3>
 
     <input type="value" id="mol1" placeholder="Digite mol do O2:">
     <input type="value" id="mol2" placeholder = "Digite mol do H2:">
@@ -30,11 +52,11 @@
 
                    if(molo2 > qtdo2)
                     
-                    var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Como " +molo2+ ">" +qtdo2 + ", O2 é o excedente e <mark> H2 é o limitante.</mark>" + "<br> Quantidade de mols do limitante: " +molh2 + "<br> Produto formado: " +molh2+ "H2O";
+                    var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Precisaríamos reagir apenas  " + qtdo2 + " mol(s) de O2. Como reagimos " + molo2 + " mol(s), O2 é o excedente e <mark> H2 é o limitante.</mark>" + "<br> Quantidade de mols do limitante: " +molh2 + "<br> Produto formado: " +molh2+ "H2O";
                     
                 else
-                    if(molo2 == qtdo2)
-                         var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Como " +molo2+ "=" +qtdo2 + ", a reação teve um aproveitamento de 100%! ";
+                    if(molo2 == 1/2 *molh2)
+                         var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br>Precisaríamos de " + 1 + " mol de O2, mas como já temos essa mesma quantidade, a reação teve um aproveitamento de <mark> 100%!  </mark>";
                  else
                      var resultado = " 1 (H2) - 1/2 (O2) <br>" + molh2 + " (H2) - x (O2) <br>" + "x = " + qtdo2 +"<br> Como " +molo2+ "<" +qtdo2 + ", O2 não é o excedente. Logo, <mark> é o limitante</mark>. <br> Quantidade de mols do limitante: " +molo2 + "<br> Reagente formado: " + 2*molo2 +"H2O";
 
