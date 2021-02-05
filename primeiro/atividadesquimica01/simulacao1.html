@@ -5,20 +5,37 @@
         <meta charset="author" content="Saulo Klein Nery"> 
     <title>Trabalho de Química</title>
         <link rel="stylesheet" href="./style.css">
+        <style>
+             #alunos{
+            border-style:outset;
+            border-color:yellow;}
+              #resposta1, #resposta2{
+            border-style:outset;
+            border-color:green;
+            background: rgba(76, 175, 80, 0.3);
+        }
+        #simulacao{
+            border-style:outset;
+            border-color: blue;
+
+        }
+    </style>
 </head>
 <body>
-    <h1>Simulação 1:Escolhemos o elemento Criptônio</h1>
+  
     
-    <h1> Alunos: Thiago Durso e Saulo Klein </h1>
-    <h2>Se você souber o mol:</h2>
+    <h2 id ="alunos"> Alunos: Thiago Durso e Saulo Klein </h2>
+
+    <h2 id = "simulacao">Simulação 1: Encontre a massa do Criptônio por meio do seu Mol e vice-versa</h2>
+    <h2>Digite o mol:</h2>
     Digite o mol:<input type="value" id="mol">
     <button onclick="javascript:achamol();">Executar</button> 
-    <h2 id="resposta"></h2>
+    <h2 id="resposta1"></h2>
 
-    <h2>Caso você saiba a massa:</h2>
+    <h2> Digite a massa:</h2>
     Digite a massa:<input type="value" id="massa">
     <button onclick="javascript:achagrama();">Executar</button>
-    <h2 id="respostas"></h2>
+    <h2 id="resposta2"></h2>
 </body>
 <script>
          function achamol()
@@ -26,16 +43,16 @@
             var mol1 = document.getElementById("mol").value;
             mol1 = parseFloat(mol1);
             var massa1 = mol1 * 84;
-            var resultado1 = "1 mol = " + mol1 + "<br>84g = x g<br> 1x = " + mol1 + "<br> x = " + mol1 + "/1<br>x= " + massa1 + " g de Criptônio";
-            document.getElementById("resposta").innerHTML = resultado1;
+            var resultado1 = "Dados: Massa Atômica do Criptônio --> 84g <br> ---------------- </br>1 mol = 84g <br> " + mol1 +" mol(s) = x g <br> x = " + mol1 + " x 84<br> x = "  + massa1 + " g de Criptônio";
+            document.getElementById("resposta1").innerHTML = resultado1;
         }
         function achagrama()
         {
             var massa2 = document.getElementById("massa").value;
             massa2 = parseFloat(massa2);
             var mol2 = massa2 / 84;
-            var resultado2 = "84g = " + massa2 + "<br>1 mol = x mol<br>84x = " + massa2 + "<br>x = " + massa2 + "/84<br>x = " + mol2 + " mol de Criptônio";
-            document.getElementById("respostas").innerHTML = resultado2;
+            var resultado2 = "Dados: Massa Atômica do Criptônio --> 84g <br>----------------------------<br>1 mol = 84g <br> x mol(s) = " + massa2 + "<br> <br>x = " + massa2 + "/84<br>x = " + mol2 + " mol de Criptônio";
+            document.getElementById("resposta2").innerHTML = resultado2;
         }
 
 
