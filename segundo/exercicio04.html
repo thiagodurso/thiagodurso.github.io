@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Procura e Substitui</title>
+	<style>
+		
+		
+			input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input, textarea{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+	</style>
+</head>
+<body>
+				<fieldset>
+					
+					
+						<div>
+							<textarea type="text" id="texto" rows="10" cols="30" placeholder="Texto"></textarea>
+						</div>
+						<input type="submit" value="Executar">
+					
+						
+						
+							
+			</fieldset>
+							
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+		$(document).ready(function(){
+			$("input[type=submit]").click(function(){
+				
+				var texto = $("#texto").val().toLowerCase();
+				var ocorrencia =[];
+				var palavras = texto.split(' ');
+				console.log(palavras);
+				for(var i=0;i<palavras.length;i++)
+				{
+					ocorrencia[i] = 0;  														
+					for(var j=1; j<palavras.length;j++){
+
+						if(palavras[j]==palavras[i])
+							ocorrencia[i]++;
+
+					}
+					
+					
+				}
+				ocorrencia[0] = ocorrencia[0]+1;
+				for(var t =0; t<ocorrencia.length;t++){
+						if ( ocorrencia[i] > maior ) 
+ 							maior = ocorrencia[i];
+
+				}
+					var maior = ocorrencia[0];
+    			    var indice = 0;
+   				for (let i = 1; i < ocorrencia.length; i++) {
+
+        						if (ocorrencia[i] > maior) {
+           								maior = ocorrencia[i];
+            							indice = i;
+        													}
+    }
+						$("#texto").val("A palavra que mais se repetiu foi ' " + palavras[indice] + " ' . Total de ocorrências: "+maior);
+				
+				
+			});
+
+		});
+			
+					
+
+		
+									
+
+</script>
