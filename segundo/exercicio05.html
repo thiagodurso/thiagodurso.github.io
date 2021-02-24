@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Procura e Substitui</title>
+	<style>
+		
+		
+			input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input, textarea{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+	</style>
+</head>
+<body>
+				<fieldset>
+					
+					
+							<div>
+							<input type="text" name="procura" placeholder="Procurar">
+							<input type="text" name="substitui" placeholder="Substituir por:">
+							
+						</div>
+						<div>
+							<textarea id="texto" rows="10" cols="30" placeholder="Texto"></textarea>
+						</div>
+						<input type="submit" value="Executar">
+					
+						
+						
+							
+			</fieldset>
+							
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+		$(document).ready(function(){
+			$("input[type=submit]").click(function(){
+				
+				var texto = $("#texto").val().toLowerCase();
+				var procura = $("input[name=procura]").val().toLowerCase();
+				var substitui = $("input[name=substitui]").val();
+				var palavras = texto.split(' ');
+				var txt="";
+				for(var i=0;i<palavras.length;i++)
+				{
+					if(palavras[i]==procura)
+						palavras[i] = substitui;
+					
+				}
+					var txt =palavras.join(' ');
+
+				
+			$("#texto").val(txt);	
+				
+			});
+
+		});
+			
+					
+
+		
+									
+
+</script>
