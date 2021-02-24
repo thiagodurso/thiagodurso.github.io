@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Procura e Substitui</title>
+	<style>
+		
+		
+			input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input, textarea{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+	</style>
+</head>
+<body>
+				<fieldset>
+					
+					
+						<div>
+							<textarea type="text" id="texto" rows="10" cols="30" placeholder="Texto"></textarea>
+						</div>
+						<input type="submit" value="Executar">
+					
+						<br><br>
+						<table id="tabela" border="1">
+						<tr> 
+							<td> Palavras</td>
+							<td> Ocorrências </td>
+							</tr>	
+
+						 </table>
+						
+							
+			</fieldset>
+							
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+		$(document).ready(function(){
+			$("input[type=submit]").click(function(){
+				
+				var texto = $("#texto").val().toLowerCase();
+				var ocorrencia =[];
+				var palavras = texto.split(' ');
+				
+				for(var i=0;i<palavras.length;i++)
+				{
+					ocorrencia[i] = 0;
+					
+
+					for(var j=1; j<palavras.length;j++){
+
+						if(palavras[i]==palavras[j])
+							ocorrencia[i]++;
+
+					}
+					
+					
+				}
+				
+				ocorrencia[0] = ocorrencia[0]+1;
+			var palavras1 =palavras.filter(function(este, i) {
+    return palavras.indexOf(este) === i;
+});
+
+
+
+
+				for(var i=0;i<palavras.length;i++){
+
+					$("#tabela").append($("<tr>").append($("<td>").text(palavras1[i])).append($("<td>").text(ocorrencia[i])));
+				}
+		console.log(ocorrencia);				
+
+				
+				
+        													
+    
+						
+				
+				
+			});
+
+		});
+			
+					
+
+		
+									
+
+</script>
