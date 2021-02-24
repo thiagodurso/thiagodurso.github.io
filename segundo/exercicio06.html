@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data</title>
+	<style>
+		input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+	
+	</style>
+</head>
+<body>
+				
+							<input type="date" name="data" placeholder="Digite Data de Nascimento">
+							
+							<input type="submit" value="Enviar">
+							
+						
+						
+								<p class="resultado"> </p>
+							</div>
+							
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+		$(document).ready(function(){
+
+			$("input[type=submit]").click(function(){
+				if($("input[name=data]").val()==0)
+					alert("Digite uma data!")
+				else
+				{
+			var data1 = $("input[name=data]").val();
+			
+
+			var ano1 = data1.substr(0,4);
+			var mes1 = data1.substr(5,2);
+			var dia1 = data1.substr(8,2);
+			var date1 = new Date(ano1, mes1-1, dia1); //-1 porque o mês estava vindo como 1 a mais
+			var datahoje = new Date();
+			
+
+			var milissegundos = Math.abs(date1.getTime() - datahoje.getTime() ); //tempo dado em milissegundos
+			var dias = Math.ceil( milissegundos/(1000*60*60*24) );
+			$(".resultado").text("De " + dia1+"/"+mes1+"/"+ano1 +" até hoje, você teve "+dias+ " dia(s) de vida!");
+			
+}
+			});
+			
+
+
+		});
+
+</script>
