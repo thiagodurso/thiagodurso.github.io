@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Senha</title>
+	<style>
+		div{
+			display:inline;
+		}
+			input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+	</style>
+</head>
+<body>
+				<div>
+					<form>
+							<input type="text" name="senha" placeholder="Senha">
+							<input type="submit" value="Enviar">
+							
+						</form>
+						
+								<br><br><br><p> <span class="palavra"> </span> </p>
+				</div>
+							
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+		$(document).ready(function(){
+			
+			$("input[name=senha]").keyup(function(){
+					
+
+				 var caracter = ($(this).val());
+								 
+
+					var especial=0;
+					var numero = 0;
+					var maiusculo=0;
+					var minusculo = 0;
+					var char_especiais = /[@#!$%&*()-+.,=]/;
+					var char_numeros = /[1-9]/;
+					var char_maiusculo = /[AZ]/;
+					var char_minusculo = /[az]/;
+				
+				 for(var i=0;i<caracter.length;i++){
+
+
+													if(caracter[i].search(char_especiais)!=-1)
+														especial++;
+													if(caracter[i].search(char_numeros)!=-1)
+														numero++;	
+													if(caracter[i].search(char_maiusculo)!=-1)
+															maiusculo++;
+													if(caracter[i].search(char_minusculo)!=-1)
+															minusculo++;			
+													
+												 		}			 
+												
+													
+											if(especial!=0 && numero!=0 && maiusculo!=0 && minusculo!=0){
+											
+														$(".palavra").text("Forte").css({"background-color":"green", "font-weight":"bold", "color":"white"});
+														}	
+											else
+												if(especial==0 && numero!=0 && maiusculo!=0 && minusculo!=0){
+													
+														$(".palavra").text("Moderado").css({"background-color":"orange", "font-weight":"bold", "color":"white"});	
+												}
+											else
+												if(especial==0 && numero==0 && (maiusculo!=0 || minusculo!=0) ) {
+
+													$(".palavra").text("Fraca").css({"background-color":"red", "font-weight":"bold", "color":"white"});
+												}
+														else
+															$(".palavra").text("Fraca").css({"background-color":"red", "font-weight":"bold", "color":"white"})
+															
+
+								if(caracter.length==0){
+									$(".palavra").text("").css("background-color", "transparent");
+									
+													  }			
+		});				
+			
+	});
+	
+									
+
+</script>
