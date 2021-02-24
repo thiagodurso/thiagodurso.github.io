@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inverte</title>
+	<style>
+
+
+			input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input, textarea{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+		 </style>
+</head>
+<body>
+		<input type="text" name="frase" placeholder="Digite frase">
+		<input type="submit" value="Enviar"> 
+			<p class="resultado"> </p>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+				$(document).ready(function(){
+			$("input[type=submit]").click(function(){
+				
+				var texto = $("input[name=frase]").val();
+				var palavras = texto.split("");
+				txt="";
+				if(texto==0)
+					alert("Digite Data!");
+				else{
+				for(var i=palavras.length-1; i>=0;i--)
+				
+
+					txt += palavras[i];
+					
+
+						
+						
+				
+				$(".resultado").append(txt);
+			}
+			});	
+	});
+
+
+
+
+</script>
