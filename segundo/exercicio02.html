@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vogais</title>
+	<style>
+
+
+			input[type="submit"], button{
+		 		background-color:green;
+		 		color:white;
+		 	}
+		body, input, textarea{
+		 			background-color: rgba(255, 255, 128, .5);
+		 	}
+		 </style>
+</head>
+<body>
+		<input type="text" name="frase" placeholder="Digite frase">
+		<input type="submit" value="Enviar"> 
+			<p class="resultado"> </p>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
+<script>
+				$(document).ready(function(){
+			$("input[type=submit]").click(function(){
+				
+				var texto = $("input[name=frase]").val().toLowerCase();
+				var palavras = texto.split("");
+				txt="";
+				for(var i=0; i<palavras.length;i++)
+				{
+
+					if(palavras[i]=="a" ||palavras[i]== "e"||palavras[i]=="i"||palavras[i]=="o"||palavras[i]=="u")
+						txt=txt + "<strong>" + palavras[i] + "</strong>";
+					else
+
+						txt=txt+palavras[i];
+						
+				}
+				$(".resultado").html(txt);
+		});
+	});
+
+
+
+
+</script>
