@@ -106,8 +106,6 @@
 				var figuraClass = $("<img>").attr('src', './class6.png').css({"heigth:":"50","width":"50"}).addClass("classificacao");
 
 						
-						//let info1 = $("body").append($("<div>").append($("<h1>").text(titulo)).append($("<p>").text(resumo)));
-
 
 						$.each(filme.generos, function(index, genero){
 							
@@ -116,10 +114,7 @@
 
 
 						})
-							//let info1 = $("body").append($("<div>").append($("<h1>").text(titulo)).append($("<p>").text(resumo)).append(ulgenero));
-							//let info1 = $("body").append($("<div class='linha'>").append($("<div class='coluna-50'> ").append($("<h1>").text(titulo).append($("<p>")).text(resumo).append(ulgenero))).append($(" <div class='coluna-50'>").append($("<img class='fotinha'>").attr("src", figura))));
-
-							//let $info1 = $("body").append($("<div class='linha'>").append($("<div class='coluna-50'> ").append($("<h1>").text(titulo)).append($("<p>").text(resumo)).append(ulgenero)).append($(" <div class='coluna-50'>").css("background-image", "url("+figura+")")));
+						
 							let $info1 = $("<div class='linha'>").append($("<div class='coluna-50'> ").append($("<h1>").text(titulo)).append(figuraClass).append($("<p>").text(resumo)).append(ulgenero)).append($(" <div class='coluna-50'>").css("background-image", "url("+figura+")")).append(opinion).append(ulelenco);
 
 
