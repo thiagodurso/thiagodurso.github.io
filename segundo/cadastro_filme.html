@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style> 
+			
+	
+	
+			
+
+		body {
+    background-color: #363636;
+    font-family: work sans,Arial,sans-serif;
+    font-size: 16px;
+  
+    color: #8b8b92;
+
+}
+
+
+				.linha{
+					display:flex;
+					flex-flow: row wrap;
+					width: 60%;
+					padding: 50px;
+    				line-height: 24px;
+    
+    margin-right: auto;
+    margin-left: auto; 
+    border-style: outset;
+    border-color: black;
+
+				}
+
+				.coluna-50{
+					width:50%;
+					background-repeat: no-repeat;
+					-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  
+
+				}
+		li{
+			margin-top: 10px;
+			font-size: 20px;
+		}
+	
+		.semelhantes{
+	width: 100px; 
+    height: 100px;
+    border-radius: 5%;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-left:30px;
+}
+.classificacao{
+	background-color: blue;
+	top:0px;
+	right:0px;
+}
+.elenco{
+	margin-left: 100px;
+}
+		</style>
+	<title>Cadastro de Séries e Filmes</title>
+</head>
+<body>
+						
+</body>							
+		
+
+
+</html>
+
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ <script>
+ 		$(document).ready(function(){
+
+
+ 		 let url = "https://rafaelescalfoni.github.io/desenv_web/filmes.json";
+		 $.get(url, function(data){
+					$.each(data, function(index,filme){
+
+						let titulo = filme.titulo;
+						let resumo = filme.resumo;
+						let classificacao = filme.classificacao;
+						let figura = filme.figura;
+						let ulgenero = $("<ul>");
+						let opinion = $("<div>").append($("<h2>").text("Comentários"));
+						let ulelenco = $("<div class='elenco'>").append($("<h2>").text("Elenco"));
+						let fotos = $("<div>").append($("<h2>").text("Títulos semelhantes"));
+
+							if(classificacao == '0')
+				var figuraClass = $("<img>").attr('src', './class1.png').css({"heigth:":"50","width":"50"}).addClass("classificacao");
+			if(filme.classificacao == '10')
+			 	var figuraClass = $("<img>").attr('src', './class2.png').css({"heigth:":"50","width":"50"}).addClass("classificacao");
+			if(filme.classificacao == '12')
+				var figuraClass = $("<img>").attr('src', './class3.png').css({"heigth:":"50","width":"50"}).addClass(" classificacao");
+			if(filme.classificacao == '14')
+				var figuraClass = $("<img>").attr('src', './class4.png').css({"heigth:":"50","width":"50"}).addClass("classificacao");
+			if(filme.classificacao == '16')
+				var figuraClass = $("<img>").attr('src', './class5.png').css({"heigth:":"50","width":"50"}).addClass("classificacao");
+			if(filme.classificacao == '18')
+				var figuraClass = $("<img>").attr('src', './class6.png').css({"heigth:":"50","width":"50"}).addClass("classificacao");
+
+						
+						//let info1 = $("body").append($("<div>").append($("<h1>").text(titulo)).append($("<p>").text(resumo)));
+
+
+						$.each(filme.generos, function(index, genero){
+							
+							let textogenero = $("<li>").text(genero);
+							ulgenero.append(textogenero);
+
+
+						})
+							//let info1 = $("body").append($("<div>").append($("<h1>").text(titulo)).append($("<p>").text(resumo)).append(ulgenero));
+							//let info1 = $("body").append($("<div class='linha'>").append($("<div class='coluna-50'> ").append($("<h1>").text(titulo).append($("<p>")).text(resumo).append(ulgenero))).append($(" <div class='coluna-50'>").append($("<img class='fotinha'>").attr("src", figura))));
+
+							//let $info1 = $("body").append($("<div class='linha'>").append($("<div class='coluna-50'> ").append($("<h1>").text(titulo)).append($("<p>").text(resumo)).append(ulgenero)).append($(" <div class='coluna-50'>").css("background-image", "url("+figura+")")));
+							let $info1 = $("<div class='linha'>").append($("<div class='coluna-50'> ").append($("<h1>").text(titulo)).append(figuraClass).append($("<p>").text(resumo)).append(ulgenero)).append($(" <div class='coluna-50'>").css("background-image", "url("+figura+")")).append(opinion).append(ulelenco);
+
+
+
+							
+''
+						
+							$.each(filme.opinioes, function(ind, op){
+				if(op.rating == 5)
+					var $opiniao = $("<p>").html("<img src='./imagem5.png' style='width:100px;'>" + "   " + op.descricao);
+				if(op.rating == 4)
+					var $opiniao = $("<p>").html("<img src='./imagem4.png' style='width:100px;'>" + "   " + op.descricao);
+				if(op.rating == 3)
+					var $opiniao = $("<p>").html("<img src='./imagem3.png' style='width:100px;'>" + "   " + op.descricao);
+                opinion.append($opiniao);
+            })
+
+
+								$.each(filme.elenco, function(index, elenco){
+							
+							let textoElenco = $("<li>").text(elenco);
+							ulelenco.append(textoElenco);
+							
+
+
+						})
+
+										$.each(filme.titulosSemelhantes, function(index, titulo){
+									$.each(data, function(index, semelhante){
+											if(titulo == semelhante.id){
+												let foto =$("<img>").attr('src',semelhante.figura).addClass("semelhantes");
+													fotos.append(foto);
+											}
+                    	
+
+									})
+
+							
+							})
+								
+					
+
+								$("body").append($info1);
+						
+					})
+
+					
+			
+		})
+		
+
+ 			});
+ </script>
